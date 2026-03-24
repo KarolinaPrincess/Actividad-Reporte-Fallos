@@ -1,8 +1,8 @@
 -- ============================================================
 -- MÓDULO 3: MANTENIMIENTO RUTINARIO
-
 -- ============================================================
 
+-- Reclama espacio en disco y actualiza estadísticas para el optimizador.
 VACUUM ANALYZE reportes_fallos;
 
 /*
