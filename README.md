@@ -9,8 +9,6 @@
 
 # Sistema de Gestión de Reportes de Fallos
 
-> *Infraestructura de base de datos automatizada para el control de incidencias en dispositivos tecnológicos*
-
 ---
 
 **Integrante:** Carlos Vicente Álvarez Pérez  
@@ -18,6 +16,10 @@
 
 
 </div>
+
+---
+
+> *Infraestructura de base de datos automatizada para el control de incidencias en dispositivos tecnológicos*
 
 ---
 
@@ -62,7 +64,7 @@
 
 ## Ejecución y Despliegue
 
-### 1️Levantar Contenedores
+### Levantar Contenedores
 
 ```bash
 docker compose up -d
@@ -77,8 +79,7 @@ docker ps
 ### Ejecutar Script Principal (MAIN)
 
 ```bash
-docker exec -it postgres17 psql -U postgres -d db_reporte_fallos \
-  -f docker-entrypoint-initdb.d/MAIN.sql
+docker exec -it postgres17 psql -U postgres -d db_reporte_fallos -f docker-entrypoint-initdb.d/MAIN.sql
 ```
 
 ---
