@@ -29,7 +29,9 @@ Entidad transaccional donde se registran las incidencias reportadas en los dispo
 
 Asegúrate de tener **Docker** en ejecución y levanta los servicios definidos en tu entorno.
 
+```bash
 docker-compose up -d
+```
 
 Ejecución del Script Principal (MAIN)
 
