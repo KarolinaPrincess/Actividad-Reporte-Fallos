@@ -40,8 +40,8 @@ docker exec -it postgres17 psql -U postgres -d db_reporte_fallos -f docker-entry
 ```
 ---
 
-Stack Tecnológico 🐳
-Motor de Base de Datos: PostgreSQL 17
-Gestión: pgAdmin 4
-Contenedores: Docker & Docker Compose
-Lenguaje: SQL / PL/pgSQL
+### Stack Tecnológico 🐳
+* Motor de Base de Datos: PostgreSQL 17
+* Gestión: pgAdmin 4
+* Contenedores: Docker & Docker Compose
+* Lenguaje: SQL / PL/pgSQL
