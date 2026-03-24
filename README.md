@@ -29,14 +29,16 @@ Entidad transaccional donde se registran las incidencias reportadas en los dispo
 
 Asegúrate de tener **Docker** en ejecución y levanta los servicios definidos en tu entorno.
 
-```bash
 docker-compose up -d
 
 Ejecución del Script Principal (MAIN)
 
 Para inicializar la base de datos, crear las tablas, triggers e insertar datos de prueba, ejecuta:
 
+```bash
 docker exec -it postgres17 psql -U postgres -d db_reporte_fallos -f docker-entrypoint-initdb.d/MAIN.sql
+```
+---
 
 Stack Tecnológico 🐳
 Motor de Base de Datos: PostgreSQL 17
