@@ -4,9 +4,9 @@ Este proyecto implementa una infraestructura de base de datos en **PostgreSQL 17
 
 ---
 
-## 👥 Integrante
+### Integrante
 
-- **Carlos Vicente Álvarez Pérez**
+**Carlos Vicente Álvarez Pérez**
 
 ---
 
