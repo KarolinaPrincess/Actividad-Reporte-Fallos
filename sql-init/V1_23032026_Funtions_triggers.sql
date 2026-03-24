@@ -24,17 +24,18 @@ CREATE TRIGGER trg_reporte_actualiza_estado
 /*
 * JUSTIFICACIÓN TÉCNICA:
 *
-* 1. FOR EACH ROW:
-*    Se utiliza porque necesitamos acceder a los datos de CADA fila
-*    insertada individualmente (NEW.id_pizarra). Un trigger FOR EACH
-*    STATEMENT no expone la variable NEW y no permitiría identificar
-*    qué pizarra específica fue afectada.
+* 1.FOR EACH ROW:
+*   Se utiliza este nivel de ejecución porque el trigger necesita
+*   capturar el valor específico de id_pizarra que se acaba de
+*   insertar. Al ser "por cada fila", el trigger puede leer la
+*   variable especial NEW, la cual contiene los datos exactos del 
+*   reporte que está entrando en ese instante.
 *
-* 2. AFTER INSERT:
-*    El timing AFTER es preferible aquí porque necesitamos que la fila
-*    en reportes_fallos ya esté confirmada en la tabla antes de
-*    propagar el cambio a pizarras. Usar BEFORE podría generar
-*    inconsistencias si la inserción fallara después del UPDATE.
-*    Con AFTER, ambas operaciones forman parte de la misma transacción
-*    y se revierten juntas ante cualquier error.
+* 2.AFTER INSERT:
+*   El timing AFTER es preferible aquí porque necesitamos que la fila
+*   en reportes_fallos ya esté confirmada en la tabla antes de
+*   propagar el cambio a pizarras. Usar BEFORE podría generar
+*   inconsistencias si la inserción fallara después del UPDATE.
+*   Con AFTER, ambas operaciones forman parte de la misma transacción
+*   y se revierten juntas ante cualquier error.
 */
