@@ -7,29 +7,28 @@
 
 <br/><br/>
 
-# 🖥️ Sistema de Gestión de Reportes de Fallos
-### **Universitat Jaume I — UJI**
+# Sistema de Gestión de Reportes de Fallos
 
 > *Infraestructura de base de datos automatizada para el control de incidencias en dispositivos tecnológicos*
 
 ---
 
-👤 **Integrante:** Carlos Vicente Álvarez Pérez  
-📚 **Asignatura:** Diplomado de Administración de Base de Datos e Inteligencia de Negocios  
-🛢️ **Motor:** PostgreSQL 17 · Docker · PL/pgSQL
+**Integrante:** Carlos Vicente Álvarez Pérez  
+**Asignatura:** Diplomado de Administración de Base de Datos e Inteligencia de Negocios  
+
 
 </div>
 
 ---
 
-## 🗂️ Estructura de la Base de Datos
+## Estructura de la Base de Datos
 
 <table>
 <thead>
 <tr>
-<th>🟩 Tabla</th>
-<th>📋 Descripción</th>
-<th>🔑 Clave</th>
+<th>Tabla</th>
+<th>Descripción</th>
+<th>Clave</th>
 </tr>
 </thead>
 <tbody>
@@ -53,45 +52,29 @@
 
 ---
 
-## ⚙️ Integridad Referencial
+## Integridad Referencial
 
 | Relación | Regla | Comportamiento |
 |---|---|---|
 | `reportes_fallos` → `pizarras` | **Propagar** | `ON DELETE CASCADE` — elimina reportes al retirar la pizarra |
 | `reportes_fallos` → `tecnicos` | **Anular** | `ON DELETE SET NULL` — conserva reportes si el técnico es dado de baja |
 
----
 
-## ⚡ Automatización con Triggers
+## Ejecución y Despliegue
 
-```sql
--- Se activa automáticamente con cada INSERT en reportes_fallos
-AFTER INSERT → FOR EACH ROW
-  UPDATE pizarras SET estado = 'En Reparación'
-  WHERE id_pizarra = NEW.id_pizarra;
-```
-
-> **¿Por qué `AFTER INSERT` y `FOR EACH ROW`?**  
-> `AFTER` garantiza que la fila ya fue confirmada antes de propagar el cambio.  
-> `FOR EACH ROW` permite acceder a `NEW.id_pizarra` de cada registro individualmente.
-
----
-
-## 🚀 Ejecución y Despliegue
-
-### 1️⃣ Levantar Contenedores
+### 1️Levantar Contenedores
 
 ```bash
 docker compose up -d
 ```
 
-### 2️⃣ Verificar servicios activos
+### Verificar servicios activos
 
 ```bash
 docker ps
 ```
 
-### 3️⃣ Ejecutar Script Principal (MAIN)
+### Ejecutar Script Principal (MAIN)
 
 ```bash
 docker exec -it postgres17 psql -U postgres -d db_reporte_fallos \
@@ -100,7 +83,7 @@ docker exec -it postgres17 psql -U postgres -d db_reporte_fallos \
 
 ---
 
-## 🧹 Mantenimiento Rutinario
+## Mantenimiento Rutinario
 
 ```sql
 -- Limpieza de tuplas muertas + actualización de estadísticas
@@ -114,17 +97,17 @@ VACUUM ANALYZE reportes_fallos;
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico 🐳
 
 <div align="center">
 
-| 🟪 Componente | 🟩 Tecnología |
+| Componente | Tecnología |
 |:---:|:---:|
-| 🐘 Motor de Base de Datos | **PostgreSQL 17** |
-| 🖥️ Gestión Visual | **pgAdmin 4** |
-| 🐳 Contenedores | **Docker & Docker Compose** |
-| 💾 Lenguaje | **SQL / PL/pgSQL** |
-| 🔀 Control de Versiones | **Git & GitHub** |
+| Motor de Base de Datos | **PostgreSQL 17** |
+| Gestión Visual | **pgAdmin 4** |
+| Contenedores | **Docker & Docker Compose** |
+| Lenguaje | **SQL / PL/pgSQL** |
+| Control de Versiones | **Git & GitHub** |
 
 </div>
 
@@ -133,6 +116,5 @@ VACUUM ANALYZE reportes_fallos;
 <div align="center">
 
 *Diplomado de Administración de Base de Datos e Inteligencia de Negocios*  
-**Universitat Jaume I — UJI** 🎓
 
 </div>
