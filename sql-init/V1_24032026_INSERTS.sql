@@ -1,5 +1,5 @@
 -- ============================================================
--- PASO 1: INSERTAR DATOS EN TABLAS PRINCIPALES
+-- INSERTAR DATOS EN TABLAS PRINCIPALES
 -- ============================================================
 
 -- Insertamos 3 pizarras con estado inicial 'Operativa'
