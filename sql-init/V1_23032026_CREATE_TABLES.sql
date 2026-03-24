@@ -6,7 +6,7 @@
 CREATE TABLE pizarras (
     id_pizarra SERIAL PRIMARY KEY,
     ubicacion VARCHAR(50) NOT NULL,
-    estado VARCHAR(20) NOT NULL
+    estado VARCHAR(20) NOT NULL,
     
     CONSTRAINT chk_estado_pizarra
     CHECK (estado IN ('Operativa', 'En Reparación', 'Fuera de Servicio'))
@@ -24,14 +24,16 @@ CREATE TABLE reportes_fallos (
     id_reporte SERIAL PRIMARY KEY,
     fecha DATE NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
-    id_pizarra INT,
-    id_tecnico INT
 
+    id_pizarra INT,
     CONSTRAINT fk_pizarra
+    FOREIGN KEY (id_pizarra)
     REFERENCES pizarras(id_pizarra)
     ON DELETE CASCADE,
-    
+
+    id_tecnico INT,
     CONSTRAINT fk_tecnico
+    FOREIGN KEY (id_tecnico)
     REFERENCES tecnicos(id_tecnico)
     ON DELETE SET NULL
 );
